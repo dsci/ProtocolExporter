@@ -109,6 +109,8 @@ module XML
     private 
     def assign_klasses_from_report
       
+      xml = @xml_doc.search("//Abfrage")
+      
     end
   end
 end
