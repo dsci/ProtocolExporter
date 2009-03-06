@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>exportSpaltzug (ExcelExporter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/excel_exporter.rb, line 114</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exportSpaltzug</span>(<span class="ruby-identifier">filename</span>,<span class="ruby-identifier">spzProt</span>)
+    <span class="ruby-identifier">ex_ranges</span> = [<span class="ruby-value str">&quot;d&quot;</span>,<span class="ruby-value str">&quot;e&quot;</span>,<span class="ruby-value str">&quot;f&quot;</span>]
+    <span class="ruby-identifier">book</span> = <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">WorkBooks</span>.<span class="ruby-constant">Open</span>(<span class="ruby-identifier">filename</span>)
+    <span class="ruby-identifier">sheet</span> = <span class="ruby-identifier">book</span>.<span class="ruby-constant">WorkSheets</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">select</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-identifier">visible</span> = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'g2'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">tbwerk</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'d4'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">firma</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'d5'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">baustelle</span>
+    
+    <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">spaltzug</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">volumen</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">volume</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">laenge</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">breite</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">hoehe</span>)
+      <span class="ruby-identifier">rohdichte</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">rohdichte</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">masse</span>, <span class="ruby-identifier">volumen</span>)
+      <span class="ruby-identifier">alter</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">pruefalter</span>(<span class="ruby-constant">Helper</span>.<span class="ruby-identifier">format_date</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">herstelldatum</span>), <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">format_date</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">prf_datum</span>))
+      <span class="ruby-identifier">round</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">round</span>(<span class="ruby-constant">Helper</span>.<span class="ruby-identifier">spaltzug_fest</span>(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">bruchlast</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">breite</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">hoehe</span>))
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">7</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">nr</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">8</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">betonkl</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">9</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">betonsorte</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">10</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">lieferschein</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">11</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">herstelldatum</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">12</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">bauteil</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">15</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">sollalterm</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">16</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">lufttemp</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">17</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">betontemp</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">18</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">ausbreit</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">19</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">verdichtm</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">20</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">verdichtger</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">21</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">verdichtdauer</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">22</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">masseFB</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">23</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">masseF</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">24</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">massB</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">25</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">volumeF</span>)
+      <span class="ruby-comment cmt">#exrange_insert(ex_ranges,count,26.n.rohdichteF)</span>
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">27</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">luftgehalt</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">28</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">lagerungWF</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">29</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">lagerungLF</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">32</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">buch_nr</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">33</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">einlief_dat</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">34</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">annehmer</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">35</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">lagerungWB</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">36</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">lagerungLB</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">37</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">prf_datum</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">38</span>,<span class="ruby-identifier">alter</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">39</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">eb_flaech</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">40</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">laenge</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">41</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">breite</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">42</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">hoehe</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">43</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">masse</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">44</span>,<span class="ruby-identifier">volumen</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">45</span>,<span class="ruby-identifier">rohdichte</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">46</span>,<span class="ruby-identifier">n</span>.<span class="ruby-identifier">bruchlast</span>)
+      <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">48</span>,<span class="ruby-identifier">round</span>)
+      <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    }
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-identifier">visible</span> = <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

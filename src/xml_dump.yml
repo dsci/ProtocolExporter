@@ -1,0 +1,45 @@
+--- !ruby/object:DruckProtokoll 
+baustelle: "E\xDC Helbebr\xFCcke Greussen"
+betonsorte: "15353205"
+cubes: 
+- !ruby/object:DfCube 
+  alter_ist: "30"
+  ausbreit: "560"
+  bauteil: BP4
+  breite: "150"
+  bruchlast: "987"
+  druckfest: "43,867"
+  druckfest_korr: "40,35764"
+  eb_flaech: Ohne Beanstandung
+  einlief_dat: 13.10.08
+  herstelldatum: 04.10.08
+  hoehe: "150"
+  laenge: "150"
+  lieferschein: "29873"
+  masse: "7,65"
+  nr: 11111-04
+  prf_datum: 03.11.08
+  rohdichte: "2,267"
+- !ruby/object:DfCube 
+  alter_ist: "30"
+  ausbreit: "560"
+  bauteil: BP4
+  breite: "150"
+  bruchlast: "987"
+  druckfest: "43,867"
+  druckfest_korr: "40,35764"
+  eb_flaech: Ohne Beanstandung
+  einlief_dat: 13.10.08
+  herstelldatum: 04.10.08
+  hoehe: "150"
+  laenge: "150"
+  lieferschein: "29873"
+  masse: "7,65"
+  nr: 11111-04
+  prf_datum: 03.11.08
+  rohdichte: "2,267"
+festkl: C25/30
+firma: "Bilfinger Berger STA Erfurt   "
+korr_fac: ,92
+nr: DF/2008/Le-0005
+tbwerk: "Transportbeton \xDCK1"

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>spaltZugExport (EventManager)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/event_manager.rb, line 128</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">spaltZugExport</span>()
+    <span class="ruby-identifier">spzProt</span> = <span class="ruby-constant">SpaltzugProtokoll</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">view</span> = <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">centralWidget</span>
+    <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">baustelle</span> = <span class="ruby-identifier">view</span>.<span class="ruby-identifier">spzUI</span>.<span class="ruby-identifier">baustelleEdit</span>.<span class="ruby-identifier">text</span>
+    <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">firma</span> = <span class="ruby-identifier">view</span>.<span class="ruby-identifier">spzUI</span>.<span class="ruby-identifier">firmaEdit</span>.<span class="ruby-identifier">text</span>
+    <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">tbwerk</span> = <span class="ruby-identifier">view</span>.<span class="ruby-identifier">spzUI</span>.<span class="ruby-identifier">lieferwerkEdit</span>.<span class="ruby-identifier">text</span>
+    <span class="ruby-comment cmt">#if AppHelper.spaltzugArray.empty?</span>
+      <span class="ruby-comment cmt"># momentan eingetragene Daten einzigstes Element </span>
+      <span class="ruby-comment cmt"># Model erstellen</span>
+      <span class="ruby-comment cmt"># Array hinzuefuegen</span>
+      <span class="ruby-comment cmt">#puts &quot;empty&quot;</span>
+      <span class="ruby-constant">AppHelper</span>.<span class="ruby-identifier">spaltzugArray</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fillSpaltzugModel</span>(<span class="ruby-identifier">view</span>)
+    <span class="ruby-comment cmt">#end</span>
+    <span class="ruby-identifier">spzProt</span>.<span class="ruby-identifier">spaltzug</span> = <span class="ruby-constant">AppHelper</span>.<span class="ruby-identifier">spaltzugArray</span>
+    <span class="ruby-comment cmt">#puts spzProt.spaltzug.size</span>
+    <span class="ruby-ivar">@controller</span>.<span class="ruby-identifier">exportSpaltzug</span>(<span class="ruby-identifier">spzProt</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

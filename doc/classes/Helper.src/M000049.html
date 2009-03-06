@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>increaseNumber (Helper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/helper.rb, line 74</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">increaseNumber</span>(<span class="ruby-identifier">text</span>)
+    <span class="ruby-identifier">letter_match</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">match</span>(<span class="ruby-value str">&quot;\\w+\\D+&quot;</span>)
+    <span class="ruby-identifier">whitespace_match</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">match</span>(<span class="ruby-value str">&quot;\\s&quot;</span>)
+    <span class="ruby-identifier">num</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">letter_match</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-comment cmt">#buchstaben holen</span>
+      <span class="ruby-identifier">letter</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">fromArray</span>(<span class="ruby-identifier">letter_match</span>.<span class="ruby-identifier">to_a</span>).<span class="ruby-identifier">to_s</span>
+      <span class="ruby-comment cmt">#letter = Helper.fromArray(letter_match.to_a)</span>
+      <span class="ruby-comment cmt"># zahl parsen</span>
+      <span class="ruby-identifier">number_match</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">match</span>(<span class="ruby-value str">&quot;\\d+&quot;</span>)
+      <span class="ruby-identifier">number</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">fromArray</span>(<span class="ruby-identifier">number_match</span>.<span class="ruby-identifier">to_a</span>).<span class="ruby-identifier">to_i</span>
+      
+      <span class="ruby-identifier">number</span> = <span class="ruby-identifier">number</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">whitespace_match</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">num</span> = <span class="ruby-node">&quot;#{letter}#{number}&quot;</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">num</span> = <span class="ruby-node">&quot;#{letter} #{number}&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+     <span class="ruby-keyword kw">else</span>
+      <span class="ruby-comment cmt">#kein buchstabe kommt vor</span>
+      <span class="ruby-identifier">num</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

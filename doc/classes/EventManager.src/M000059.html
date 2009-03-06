@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>runBtnAction (EventManager)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/event_manager.rb, line 35</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">runBtnAction</span>()
+    <span class="ruby-comment cmt">#puts @view.isWU + &quot;/&quot; + @view.isDF</span>
+    <span class="ruby-comment cmt"># protokollart ausgewaehlt ?</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">isWU</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">isDF</span>
+      <span class="ruby-comment cmt">#messagebox anzeigen</span>
+      <span class="ruby-comment cmt">#MessageBox::information(tr(&quot;foo&quot;),tr(&quot;bar&quot;))</span>
+      <span class="ruby-comment cmt">#puts &quot;todod&quot;</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">isDF</span>
+            <span class="ruby-comment cmt">#druck protokoll</span>
+            <span class="ruby-comment cmt">#datei geladen ? wenn ja, gleich export</span>
+            <span class="ruby-comment cmt">#datei nicht geladen, xml aus textedit lesen und parsen</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">is_file</span>
+                <span class="ruby-ivar">@controller</span>.<span class="ruby-identifier">exportDruckToExcel</span>
+            <span class="ruby-keyword kw">else</span>
+                <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@view</span>.<span class="ruby-identifier">xml_edit</span>.<span class="ruby-identifier">plainText</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-comment cmt"># textdeit auslesen =&gt; xml parsen</span>
+                    <span class="ruby-identifier">xml</span> = <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">xml_edit</span>.<span class="ruby-identifier">plainText</span>
+                    <span class="ruby-comment cmt">#puts xml</span>
+                    <span class="ruby-ivar">@controller</span>.<span class="ruby-identifier">exportExcelDruckFromString</span>(<span class="ruby-identifier">xml</span>)
+                <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>   
+      <span class="ruby-keyword kw">elsif</span>(<span class="ruby-ivar">@view</span>.<span class="ruby-identifier">isWU</span>)
+            <span class="ruby-comment cmt">#wu protokoll</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">is_file</span>
+              <span class="ruby-ivar">@controller</span>.<span class="ruby-identifier">exportWuToExcel</span>
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@view</span>.<span class="ruby-identifier">xml_edit</span>.<span class="ruby-identifier">plainText</span>.<span class="ruby-identifier">empty?</span>
+                <span class="ruby-comment cmt">#textedit auslesen</span>
+                <span class="ruby-identifier">xml</span> = <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">xml_edit</span>.<span class="ruby-identifier">plainText</span>
+                <span class="ruby-comment cmt">#exportierens</span>
+                <span class="ruby-ivar">@controller</span>.<span class="ruby-identifier">exportWuFromStringToExcel</span>(<span class="ruby-identifier">xml</span>)
+              <span class="ruby-keyword kw">end</span>
+            <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-comment cmt"># excel server beenden</span>
+      <span class="ruby-ivar">@controller</span>.<span class="ruby-identifier">excel</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-comment cmt"># textfeld leeren</span>
+      <span class="ruby-ivar">@view</span>.<span class="ruby-identifier">clear_text_edit</span>
+      
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-comment cmt">#MessageBox anzeigen</span>
+    <span class="ruby-comment cmt">#puts e.message</span>
+    <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageBox</span><span class="ruby-operator">::</span><span class="ruby-identifier">critical</span>(<span class="ruby-ivar">@view</span>,<span class="ruby-value str">&quot;Fehler&quot;</span>,<span class="ruby-node">&quot;Fehler beim Auslesen des Zeugnisses!\n Bitte nachkontrollieren.\n #{e.message}&quot;</span>,<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageBox</span><span class="ruby-operator">::</span><span class="ruby-constant">Ok</span>,<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageBox</span><span class="ruby-operator">::</span><span class="ruby-constant">NoButton</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

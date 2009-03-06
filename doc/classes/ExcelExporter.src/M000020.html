@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>wu_export (ExcelExporter)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/excel_exporter.rb, line 76</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wu_export</span>(<span class="ruby-identifier">filename</span>,<span class="ruby-identifier">xml</span>)
+    <span class="ruby-identifier">ex_ranges</span> = [<span class="ruby-value str">&quot;d&quot;</span>,<span class="ruby-value str">&quot;g&quot;</span>,<span class="ruby-value str">&quot;j&quot;</span>] 
+    <span class="ruby-identifier">num_range</span> = [<span class="ruby-value str">&quot;d&quot;</span>,<span class="ruby-value str">&quot;g&quot;</span>,<span class="ruby-value str">&quot;j&quot;</span>]
+    <span class="ruby-identifier">book</span> = <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">WorkBooks</span>.<span class="ruby-constant">Open</span>(<span class="ruby-identifier">filename</span>)
+    <span class="ruby-identifier">sheet</span> = <span class="ruby-identifier">book</span>.<span class="ruby-constant">Worksheets</span>(<span class="ruby-value">1</span>)
+    <span class="ruby-identifier">sheet</span>.<span class="ruby-identifier">select</span>
+    <span class="ruby-ivar">@excel</span>[<span class="ruby-value str">'visible'</span>] = <span class="ruby-keyword kw">false</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'b4'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">firma</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'b3'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">baustelle</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'j3'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">nr</span>
+    <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span> 
+    <span class="ruby-comment cmt">#puts &quot;WU Size: #{xml.cubes.size}&quot;</span>
+    <span class="ruby-keyword kw">for</span> <span class="ruby-identifier">x</span> <span class="ruby-keyword kw">in</span> <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">cubes</span> <span class="ruby-keyword kw">do</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">count</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-value">3</span>)
+        <span class="ruby-comment cmt">#puts &quot;Nummer:#{x.nr}&quot;</span>
+        <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-node">&quot;#{num_range[count]}7&quot;</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">nr</span>
+      <span class="ruby-comment cmt">#@excel.Range(&quot;#{num_range[count]}&quot;)</span>
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">8</span>,<span class="ruby-identifier">xml</span>.<span class="ruby-identifier">betonsorte</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">9</span>,<span class="ruby-identifier">xml</span>.<span class="ruby-identifier">festkl</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">10</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">ausbreit</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">12</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">lieferschein</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">13</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">bauteil</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">num_range</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">14</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">herstelldatum</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">17</span>,<span class="ruby-value str">&quot;28&quot;</span>)
+        <span class="ruby-ivar">@excel</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'c25'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-identifier">x</span>.<span class="ruby-identifier">einlief_dat</span>
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">28</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">nr</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">num_range</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">31</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">prf_datum</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">32</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">alter_ist</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">num_range</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">33</span>,<span class="ruby-node">&quot;#{x.laenge}x#{x.breite}x#{x.hoehe}&quot;</span>)
+        <span class="ruby-identifier">exrange_insert</span>(<span class="ruby-identifier">ex_ranges</span>,<span class="ruby-identifier">count</span>,<span class="ruby-value">40</span>,<span class="ruby-identifier">x</span>.<span class="ruby-identifier">eindringtiefe</span>)
+        <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-keyword kw">break</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-ivar">@excel</span>.<span class="ruby-identifier">visible</span> = <span class="ruby-keyword kw">true</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>setupUi (Ui_Form)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/spaltzug_ui.rb, line 100</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setupUi</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-identifier">form</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;form&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-ivar">@qgridLayout</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout1</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-ivar">@qgridLayout1</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout1&quot;</span>)
+    <span class="ruby-ivar">@groupBox</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GroupBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-ivar">@groupBox</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;groupBox&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout2</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout2&quot;</span>)
+    <span class="ruby-ivar">@label</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@label</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lieferwerkEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@lieferwerkEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lieferwerkEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lieferwerkEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_2</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@label_2</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_2&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@firmaEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@firmaEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;firmaEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@firmaEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_3</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@label_3</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_3&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@baustelleEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox</span>)
+    <span class="ruby-ivar">@baustelleEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;baustelleEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout2</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@baustelleEdit</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>)
+
+
+    <span class="ruby-ivar">@qgridLayout1</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@groupBox</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@groupBox_2</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GroupBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-ivar">@groupBox_2</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;groupBox_2&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout3</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout3&quot;</span>)
+    <span class="ruby-ivar">@label_4</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_4</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_4&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_4</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@spacerItem</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">SpacerItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">81</span>, <span class="ruby-value">20</span>, <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">SizePolicy</span><span class="ruby-operator">::</span><span class="ruby-constant">Expanding</span>, <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">SizePolicy</span><span class="ruby-operator">::</span><span class="ruby-constant">Minimum</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addItem</span>(<span class="ruby-ivar">@spacerItem</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@pkNrEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@pkNrEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;pkNrEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@pkNrEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_5</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_5</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_5&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_5</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@betonFestBox</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@betonFestBox</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;betonFestBox&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@betonFestBox</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_6</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_6</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_6&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_6</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@betonsorteEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@betonsorteEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;betonsorteEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@betonsorteEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_7</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_7</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_7&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_7</span>, <span class="ruby-value">3</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lieferscheinEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@lieferscheinEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lieferscheinEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lieferscheinEdit</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_8</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_8</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_8&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_8</span>, <span class="ruby-value">4</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@hstDatumEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@hstDatumEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;hstDatumEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@hstDatumEdit</span>, <span class="ruby-value">4</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_9</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_9</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_9&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_9</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@bauteilEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@bauteilEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;bauteilEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@bauteilEdit</span>, <span class="ruby-value">5</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_10</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@label_10</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_10&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_10</span>, <span class="ruby-value">6</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@sollAlterBox</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">ComboBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_2</span>)
+    <span class="ruby-ivar">@sollAlterBox</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;sollAlterBox&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout3</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@sollAlterBox</span>, <span class="ruby-value">6</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+
+    <span class="ruby-ivar">@qgridLayout1</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@groupBox_2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@groupBox_3</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GroupBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-ivar">@groupBox_3</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;groupBox_3&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout4</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout4&quot;</span>)
+    <span class="ruby-ivar">@label_11</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_11</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_11&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_11</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lufttempEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@lufttempEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lufttempEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lufttempEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_18</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_18</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_18&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_18</span>, <span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@volumenEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@volumenEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;volumenEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@volumenEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_12</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_12</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_12&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_12</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@betontempEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@betontempEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;betontempEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@betontempEdit</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_19</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_19</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_19&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_19</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@rohEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@rohEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;rohEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@rohEdit</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_13</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_13</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_13&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_13</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@ausbreitEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@ausbreitEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;ausbreitEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@ausbreitEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_20</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_20</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_20&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_20</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@luftgehaltEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@luftgehaltEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;luftgehaltEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@luftgehaltEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_14</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_14</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_14&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_14</span>, <span class="ruby-value">3</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@verdichtmassEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@verdichtmassEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;verdichtmassEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@verdichtmassEdit</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_21</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_21</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_21&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_21</span>, <span class="ruby-value">3</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lagerungWEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@lagerungWEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lagerungWEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lagerungWEdit</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_15</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_15</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_15&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_15</span>, <span class="ruby-value">4</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@verdichtTypEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@verdichtTypEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;verdichtTypEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@verdichtTypEdit</span>, <span class="ruby-value">4</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_22</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_22</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_22&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_22</span>, <span class="ruby-value">4</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lagerungLEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@lagerungLEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lagerungLEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lagerungLEdit</span>, <span class="ruby-value">4</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_16</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_16</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_16&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_16</span>, <span class="ruby-value">5</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@verdichtDauerEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@verdichtDauerEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;verdichtDauerEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@verdichtDauerEdit</span>, <span class="ruby-value">5</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_17</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@label_17</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_17&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_17</span>, <span class="ruby-value">6</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@masseFBEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_3</span>)
+    <span class="ruby-ivar">@masseFBEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;masseFBEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout4</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@masseFBEdit</span>, <span class="ruby-value">6</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+
+    <span class="ruby-ivar">@qgridLayout1</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@groupBox_3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@groupBox_4</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GroupBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-ivar">@groupBox_4</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;groupBox_4&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout5</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout5&quot;</span>)
+    <span class="ruby-ivar">@label_23</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_23</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_23&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_23</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@prfBNrEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@prfBNrEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;prfBNrEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@prfBNrEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>)
+
+    <span class="ruby-ivar">@label_24</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_24</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_24&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_24</span>, <span class="ruby-value">0</span>, <span class="ruby-value">5</span>, <span class="ruby-value">1</span>, <span class="ruby-value">4</span>)
+
+    <span class="ruby-ivar">@einliefDatEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@einliefDatEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;einliefDatEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@einliefDatEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">9</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>)
+
+    <span class="ruby-ivar">@label_25</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_25</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_25&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_25</span>, <span class="ruby-value">0</span>, <span class="ruby-value">12</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@annehmEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@annehmEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;annehmEdit&quot;</span>)
+    <span class="ruby-ivar">@annehmEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">61</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@annehmEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">14</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@label_26</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_26</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_26&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_26</span>, <span class="ruby-value">0</span>, <span class="ruby-value">16</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lagerWEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@lagerWEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lagerWEdit&quot;</span>)
+    <span class="ruby-ivar">@lagerWEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">71</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lagerWEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">17</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_36</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_36</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_36&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_36</span>, <span class="ruby-value">0</span>, <span class="ruby-value">18</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lagerLEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@lagerLEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lagerLEdit&quot;</span>)
+    <span class="ruby-ivar">@lagerLEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">71</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lagerLEdit</span>, <span class="ruby-value">0</span>, <span class="ruby-value">19</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@label_28</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_28</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_28&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_28</span>, <span class="ruby-value">1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@prfDatEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@prfDatEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;prfDatEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@prfDatEdit</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>)
+
+    <span class="ruby-ivar">@label_29</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_29</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_29&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_29</span>, <span class="ruby-value">1</span>, <span class="ruby-value">6</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@istalterEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@istalterEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;istalterEdit&quot;</span>)
+    <span class="ruby-ivar">@istalterEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">41</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@istalterEdit</span>, <span class="ruby-value">1</span>, <span class="ruby-value">8</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@label_30</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_30</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_30&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_30</span>, <span class="ruby-value">1</span>, <span class="ruby-value">10</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@ebenflEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@ebenflEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;ebenflEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@ebenflEdit</span>, <span class="ruby-value">1</span>, <span class="ruby-value">12</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>)
+
+    <span class="ruby-ivar">@label_31</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_31</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_31&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_31</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@lengthEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@lengthEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lengthEdit&quot;</span>)
+    <span class="ruby-ivar">@lengthEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">31</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lengthEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@widthEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@widthEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;widthEdit&quot;</span>)
+    <span class="ruby-ivar">@widthEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">31</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@widthEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@heightEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@heightEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;heightEdit&quot;</span>)
+    <span class="ruby-ivar">@heightEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">31</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@heightEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">4</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@label_32</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_32</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_32&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_32</span>, <span class="ruby-value">2</span>, <span class="ruby-value">6</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@weightEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@weightEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;weightEdit&quot;</span>)
+    <span class="ruby-ivar">@weightEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">61</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@weightEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">7</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>)
+
+    <span class="ruby-ivar">@label_33</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_33</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_33&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_33</span>, <span class="ruby-value">2</span>, <span class="ruby-value">10</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@volumeEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@volumeEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;volumeEdit&quot;</span>)
+    <span class="ruby-ivar">@volumeEdit</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">71</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@volumeEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">11</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@label_34</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_34</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_34&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_34</span>, <span class="ruby-value">2</span>, <span class="ruby-value">13</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@rohFestEdit</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@rohFestEdit</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;rohFestEdit&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@rohFestEdit</span>, <span class="ruby-value">2</span>, <span class="ruby-value">15</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@label_35</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Label</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@label_35</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;label_35&quot;</span>)
+    <span class="ruby-ivar">@font</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Font</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">setPointSize</span>(<span class="ruby-value">14</span>)
+    <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">setBold</span>(<span class="ruby-keyword kw">true</span>)
+    <span class="ruby-ivar">@font</span>.<span class="ruby-identifier">setWeight</span>(<span class="ruby-value">75</span>)
+    <span class="ruby-ivar">@label_35</span>.<span class="ruby-identifier">setFont</span>(<span class="ruby-ivar">@font</span>)
+    <span class="ruby-ivar">@label_35</span>.<span class="ruby-identifier">setStyleSheet</span>(<span class="ruby-value str">&quot;color:red;&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@label_35</span>, <span class="ruby-value">3</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@lineEdit_33</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">LineEdit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@groupBox_4</span>)
+    <span class="ruby-ivar">@lineEdit_33</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;lineEdit_33&quot;</span>)
+    <span class="ruby-ivar">@lineEdit_33</span>.<span class="ruby-identifier">setMaximumSize</span>(<span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">101</span>, <span class="ruby-value">20</span>))
+
+    <span class="ruby-ivar">@qgridLayout5</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@lineEdit_33</span>, <span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">4</span>)
+
+
+    <span class="ruby-ivar">@qgridLayout1</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@groupBox_4</span>, <span class="ruby-value">2</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+    <span class="ruby-ivar">@widget</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Widget</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-ivar">@widget</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;widget&quot;</span>)
+    <span class="ruby-ivar">@qgridLayout6</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">GridLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@widget</span>)
+    <span class="ruby-ivar">@qgridLayout6</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;qgridLayout6&quot;</span>)
+    <span class="ruby-ivar">@spacerItem1</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">SpacerItem</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">698</span>, <span class="ruby-value">20</span>, <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">SizePolicy</span><span class="ruby-operator">::</span><span class="ruby-constant">Expanding</span>, <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">SizePolicy</span><span class="ruby-operator">::</span><span class="ruby-constant">Minimum</span>)
+
+    <span class="ruby-ivar">@qgridLayout6</span>.<span class="ruby-identifier">addItem</span>(<span class="ruby-ivar">@spacerItem1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@spaltzugAdd</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">PushButton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@widget</span>)
+    <span class="ruby-ivar">@spaltzugAdd</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;spaltzugAdd&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout6</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@spaltzugAdd</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+    <span class="ruby-ivar">@spaltzugExport</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">PushButton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@widget</span>)
+    <span class="ruby-ivar">@spaltzugExport</span>.<span class="ruby-identifier">setObjectName</span>(<span class="ruby-value str">&quot;spaltzugExport&quot;</span>)
+
+    <span class="ruby-ivar">@qgridLayout6</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@spaltzugExport</span>, <span class="ruby-value">0</span>, <span class="ruby-value">2</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+
+    <span class="ruby-ivar">@qgridLayout1</span>.<span class="ruby-identifier">addWidget</span>(<span class="ruby-ivar">@widget</span>, <span class="ruby-value">3</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+
+
+    <span class="ruby-ivar">@qgridLayout</span>.<span class="ruby-identifier">addLayout</span>(<span class="ruby-ivar">@qgridLayout1</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>)
+
+
+    <span class="ruby-identifier">retranslateUi</span>(<span class="ruby-identifier">form</span>)
+
+    <span class="ruby-identifier">size</span> = <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">Size</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">885</span>, <span class="ruby-value">512</span>)
+    <span class="ruby-identifier">size</span> = <span class="ruby-identifier">size</span>.<span class="ruby-identifier">expandedTo</span>(<span class="ruby-identifier">form</span>.<span class="ruby-identifier">minimumSizeHint</span>())
+    <span class="ruby-identifier">form</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-identifier">size</span>)
+
+
+    <span class="ruby-constant">Qt</span><span class="ruby-operator">::</span><span class="ruby-constant">MetaObject</span>.<span class="ruby-identifier">connectSlotsByName</span>(<span class="ruby-identifier">form</span>)
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

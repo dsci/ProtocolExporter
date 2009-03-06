@@ -1,0 +1,5 @@
+protocols:
+    df: "C:\\Documents and Settings\\Demo\\Desktop\\protokolle\\df_protokoll.xls"
+    wu: "C:\\Documents and Settings\\Demo\\Desktop\\protokolle\\wu_protokoll.xls"
+    spz: "G:\\Programme\\Datenbanken\\ruby\\spaltzug.xls"
+

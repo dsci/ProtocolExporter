@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test (ExcelTester)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/excel_tester.rb, line 12</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test</span>
+    <span class="ruby-identifier">excel</span> = <span class="ruby-constant">WIN32OLE</span><span class="ruby-operator">::</span><span class="ruby-identifier">new</span>(<span class="ruby-value str">'excel.Application'</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-value str">&quot;C:\\Documents and Settings\\daniel_schmidt\\Work\\Bilfinger\\excel\\Protokoll_Druckfestigkeitwin2k.xls&quot;</span>
+    <span class="ruby-identifier">workbook</span> = <span class="ruby-identifier">excel</span>.<span class="ruby-constant">Workbooks</span>.<span class="ruby-constant">Open</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-identifier">worksheet</span> = <span class="ruby-identifier">workbook</span>.<span class="ruby-constant">Worksheets</span>(<span class="ruby-value">1</span>) <span class="ruby-comment cmt">#get hold of the first worksheet</span>
+    <span class="ruby-identifier">worksheet</span>.<span class="ruby-constant">Select</span>  <span class="ruby-comment cmt">#bring it to the front -need sometimes to run macros, </span>
+    <span class="ruby-comment cmt">#    not for working with a worksheet from ruby</span>
+    <span class="ruby-identifier">excel</span>[<span class="ruby-value str">'Visible'</span>] = <span class="ruby-keyword kw">true</span> <span class="ruby-comment cmt">#make visible, set to false to make invisible </span>
+    <span class="ruby-comment cmt">#   again. Don't need it to be visible for script to work</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">worksheet</span>.<span class="ruby-constant">Range</span>(<span class="ruby-value str">'a7'</span>)[<span class="ruby-value str">'Value'</span>]  <span class="ruby-comment cmt">#get value of single cell</span>
+    <span class="ruby-comment cmt">#worksheet.Range('e2')['Value'] = Time.now.strftime '%d/%m/%Y' #single value</span>
+    <span class="ruby-comment cmt">#worksheet.Range('a1')['Value'] =&quot;Bilfinger Berger AG&quot;</span>
+    <span class="ruby-identifier">worksheet</span>.<span class="ruby-identifier">range</span>(<span class="ruby-value str">'G2'</span>)[<span class="ruby-value str">'Value'</span>] = <span class="ruby-value str">&quot; Dyckerhoff Transportbeton&quot;</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

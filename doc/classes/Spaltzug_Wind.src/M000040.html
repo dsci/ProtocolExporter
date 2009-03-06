@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>clearUI (Spaltzug_Wind)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File src/spaltzug_wind.rb, line 25</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">clearUI</span>
+    <span class="ruby-identifier">num</span> = <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">pkNrEdit</span>.<span class="ruby-identifier">text</span>
+    <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">pkNrEdit</span>.<span class="ruby-identifier">text</span> = <span class="ruby-constant">Helper</span>.<span class="ruby-identifier">increaseNumber</span>(<span class="ruby-identifier">num</span>)
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lieferscheinEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lufttempEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">betontempEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">ausbreitEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">verdichtmassEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">masseFBEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">volumenEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">rohEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">luftgehaltEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lagerWEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lagerungLEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">prfBNrEdit</span>.<span class="ruby-identifier">text</span> = (<span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">prfBNrEdit</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lagerungLEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lagerWEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">ebenflEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lengthEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">widthEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">heightEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">weightEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">volumeEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">rohFestEdit</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">lineEdit_33</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-identifier">emit</span> <span class="ruby-ivar">@spzUI</span>.<span class="ruby-identifier">prfDatEdit</span>.<span class="ruby-identifier">clear</span>
+    
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
