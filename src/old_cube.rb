@@ -22,7 +22,7 @@ class OldCube
   
   alias_method :lagerunginwasser,:lagerung_wasser
   alias_method :lagerunginluftlabor,:lagerung_luft
-  alias_method :pruefbuchnummer,:buchnummer
+  alias_method :pruefbuchnummer,:buch_nummer
   
   def initialize;end
   

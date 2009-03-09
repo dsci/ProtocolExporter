@@ -10,16 +10,24 @@ module XML
       protocol_fields = @protocol.class.fields unless m_root.nil? # oracle db
       protocol_fields = @cube.class.fields if m_root.nil? #access
       
+      #p "fields :#{protocol_fields}"
+      #p "fff: #{l_root}"
       cubes = [] #wuerfel
-      @protocols = [] unless m_root.nil? #protokolle
+      @protocols = [] #unless m_root.nil?
+      #protokolle
+      
+      #p @xml_doc
       
       (@xml_doc/l_root).each do |xml|
         # hier protokolle
         protocol = Protocol.new unless m_root.nil?
         protocol = OldCube.new if m_root.nil?
         # 
-        for field in protocol_fields
-          p (xml/field.downcase_and_sym).text
+        
+        
+        protocol_fields.each_with_index do |field,index|
+          #p (xml/field.downcase_and_sym).text
+          #p index 
           protocol.send("#{field.downcase_and_sym}=",(xml/field.downcase_and_sym).text)
         end
         
@@ -40,7 +48,7 @@ module XML
         @protocols << protocol # protokolle sammeln
       end
       
-      p @protocols.last
+      #p @protocols.size
       
     end # end assign_klasses
   end
@@ -109,15 +117,26 @@ module XML
       @protocol = protocol
     end
     
-    def parse
-      root_String = "Abfrage_x003A__x0020_Protokoll_x0020_Würfel_x0020_komplett"
-      xml = replace_special_chars(xml,[{:replace => {:char => "ä", :with => "ae" }},
-                                        {:replace => {:char => "ü", :with => "ue"}},
-                                        {:replace => {:char => "ö", :with => "oe"}},
-                                      {:replace => {:char => root_String,:with => "Protokoll"}},
-                                      {:replace => {:char => "_?[x0-9*]*", :with =>"" }}])
-      @xmldoc = Hpricot.parse(xml)
-      assign_klasses_from_xml("Protokoll".downcase_and_sym,nil)
+    def parse(xml)
+      root_string = "Abfrage_x003A__x0020_Protokoll_x0020_Wuerfel_x0020_komplett"
+      
+      pp xml
+      
+      #@xml.gsub!(Regexp.new(root_String),"Protokoll")
+     
+        
+      
+      @xml = replace_special_chars(@xml,[
+                                         {:replace => {:char => "_?[x0-9*]*", :with =>"" }},
+                                        {:replace => {:char => "\344", :with => "ae" }},
+                                        {:replace => {:char => "\374", :with => "ue"}},
+                                        {:replace => {:char => "\366", :with => "oe"}},
+                                        {:replace => {:char => root_string,:with => "Protokoll"}}])
+                                    
+      p @xml
+      @xml_doc = Hpricot.parse(@xml)
+      l_root = "Protokoll".downcase_and_sym
+      assign_klasses_from_xml(l_root,nil)
     end
     
     private 

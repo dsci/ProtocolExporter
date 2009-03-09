@@ -206,6 +206,10 @@ class ExcelExporter
   
   alias_method :wu_export, :export_wu_to_excel
   
+  def access_export(filename,protocols)
+    #p protocols.last
+  end
+  
   #depricated
   def wu_exports(filename,xml)
     ex_ranges = ["d","g","j"] 

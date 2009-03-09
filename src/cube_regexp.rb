@@ -10,11 +10,11 @@ module CubeRegexp
   # :replace => {:char => "b", :with => 10}
   #
   def replace_special_chars(obj,opt=[])
-    pattern = Regexp.new(key[:char])
     replaced_string = ""
     opt.each do |entry|
       if entry.has_key?(:replace)
         key = entry[:replace]
+        pattern = Regexp.new(key[:char]) 
         replaced_string = obj.gsub(pattern,key[:with])
         obj = replaced_string
       end

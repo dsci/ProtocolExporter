@@ -65,7 +65,8 @@ class EventManager < Qt::Object
             end
       elsif(@view.isDf_old)
           unless @view.xml_edit.plainText.empty?
-            @controller.export_access_report({:xml => xml, :klass => OldCube})
+            #puts @view.xml_edit.plainText
+            @controller.export_access_report({:xml => @view.xml_edit.plainText, :klass => OldCube})
           end
       end
     

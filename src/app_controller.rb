@@ -33,11 +33,13 @@ class AppController
   # parses access2007 xml report 
   # opt is a hash like that:
   # :xml => {:xml_content => :foo_file,:klass => OldCube}
-  def get_xml_object_access(opt={})
+  def get_xml_object_access(xml,opt={})
     unless opt.empty?
-      xml = opt[:xml_content][:xml] if opt[:xml_content].has_key?(:xml)
-      klass = opt[:xml_content][:klass] if opt[:xml_content].has_key?(:klass)
-      parser = XML::AccessXml(xml,klass.new)
+      #p opt
+      #p opt[:xml][:klass]
+      xml = opt[:xml][:xml_content] if opt[:xml].has_key?(:xml_content)
+      klass = opt[:xml][:klass] if opt[:xml].has_key?(:klass)
+      
     end
   end
   
@@ -89,8 +91,16 @@ class AppController
   # exportiert access report xml ins excel
   # opt ist ein hash mit dem xml string und der klasse sowie der Art (WU/Df)
   def export_access_report(opt={})
+    
     klass = opt[:klass] if opt.has_key?(:klass)
-    @excel.access_export(@file_Df, get_xml_object_access({:xml => {:xml_content => opt[:xml],:klass => klass}}))
+     #@excel.access_export(@file_Df, get_xml_object_access({:xml => {:xml_content => opt[:xml],:klass => klass}}))
+    parser = XML::AccessXml.new(opt[:xml],klass.new)
+    parser.parse(opt[:xml])
+    xml_obj = parser.protocols
+    
+    @excel.access_export(@file_Df, xml_obj)
+      #get_xml_object_access(opt[:xml],{:xml => {:xml_content => opt[:xml],:klass => klass}}))
+    p xml_obj.size
   end
   
   #

@@ -9,6 +9,7 @@ require 'win32ole'
 require 'pp'
 
 require 'cube_regexp.rb'
+require 'old_cube.rb'
 require 'string.rb'
 require 'protokoll.rb'
 require 'general_cube.rb'
