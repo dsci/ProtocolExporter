@@ -31,9 +31,14 @@ class AppController
   
   #
   # parses access2007 xml report 
-  #
+  # opt is a hash like that:
+  # :xml => {:xml_content => :foo_file,:klass => OldCube}
   def get_xml_object_access(opt={})
-    
+    unless opt.empty?
+      xml = opt[:xml_content][:xml] if opt[:xml_content].has_key?(:xml)
+      klass = opt[:xml_content][:klass] if opt[:xml_content].has_key?(:klass)
+      parser = XML::AccessXml(xml,klass.new)
+    end
   end
   
   alias_method :readXmlFile, :get_xml_object
@@ -79,6 +84,14 @@ class AppController
   
   alias_method :exportExcelDruckFromString, :export_to_excel
   alias_method :exportWuFromStringToExcel,:export_to_excel
+  
+  #
+  # exportiert access report xml ins excel
+  # opt ist ein hash mit dem xml string und der klasse sowie der Art (WU/Df)
+  def export_access_report(opt={})
+    klass = opt[:klass] if opt.has_key?(:klass)
+    @excel.access_export(@file_Df, get_xml_object_access({:xml => {:xml_content => opt[:xml],:klass => klass}}))
+  end
   
   #
   #

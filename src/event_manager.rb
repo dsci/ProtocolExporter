@@ -10,7 +10,7 @@ class EventManager < Qt::Object
   
   
   slots 'runBtnAction()','loadBtnAction()','wu_protChanged(int)','df_protChanged(int)','spaltzug_neu()',
-        'prfExport_neu()','spaltzugAdd()','spaltZugExport()','info()'
+        'prfExport_neu()','spaltzugAdd()','spaltZugExport()','info()','wu_old_changed(int)','df_old_changed(int)'
   
   def initialize(view = nil)
     super()
@@ -65,7 +65,7 @@ class EventManager < Qt::Object
             end
       elsif(@view.isDf_old)
           unless @view.xml_edit.plainText.empty?
-            
+            @controller.export_access_report({:xml => xml, :klass => OldCube})
           end
       end
     
@@ -112,7 +112,7 @@ class EventManager < Qt::Object
   end
   
   def df_old_changed(int)
-    if(int.eql(2))
+    if(int.eql?(2))
       @view.isWU = false
       @view.isDF = false
       @view.isWu_old = false

@@ -5,7 +5,7 @@
 
 class PrfExpWindow < Widget
   
-  attr_accessor :is_file,:isWU,:isDF, :wu_prot, :df_prot, :isWu_old,:isDf_old
+  attr_accessor :is_file,:isWU,:isDF, :wu_prot, :df_prot,:isDf_old, :isWu_old
   attr_reader :xml_edit
   
   def initialize(eventM,parent=nil)

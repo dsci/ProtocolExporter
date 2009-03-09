@@ -20,9 +20,11 @@ class OldCube
                 laenge hoehe breite masse volumen rohdichte bruchlast kurzzeichen herstelldatum prf_datum einlieferungsdatum]
   end
   
-  def initialize
-    
-  end
+  alias_method :lagerunginwasser,:lagerung_wasser
+  alias_method :lagerunginluftlabor,:lagerung_luft
+  alias_method :pruefbuchnummer,:buchnummer
+  
+  def initialize;end
   
   class << self
     alias_method :fields,:init_fields
@@ -39,6 +41,9 @@ class OldCube
   def einlieferungsdatum
     date_helper self.einlieferungsdatum
   end
+  
+  
+  
   
   private
   def date_helper(date)

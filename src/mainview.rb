@@ -2,7 +2,7 @@ require 'qt4'
 include Qt
 
 class MainView < MainWindow
-    attr_accessor :is_file,:xml_edit,:isWU,:isDF
+    attr_accessor :is_file,:xml_edit,:isWU,:isDF,:isWu_old,:isDf_old
     attr_reader :xml_edit
     def initialize(parent = nil)
         super(parent)
