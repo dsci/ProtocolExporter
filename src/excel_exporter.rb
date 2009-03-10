@@ -206,8 +206,77 @@ class ExcelExporter
   
   alias_method :wu_export, :export_wu_to_excel
   
+  
+  # exports access reports to excel
+  #
+  #
   def access_export(filename,protocols)
-    #p protocols.last
+    ex_ranges = ExcelExporter::DF_EX_RANGES
+    book = @excel.WorkBooks.Open(filename)
+    sheet = book.Worksheets(1)
+    sheet.select
+    
+    report = protocols.last
+    
+    # protocol head
+    #==========================================
+    @excel.Range('g2')['Value'] = report.betonwerk
+    @excel.Range('d4')['Value'] = report.auftraggebendenl
+    @excel.Range('d5')['Value'] = report.baustellenbezeichnung
+    @excel.Range('i5')['Value'] = report.protokoll_nummer
+    #==========================================
+    # end protocol head
+    
+    
+    
+    korr = Helper.toDouble(report.korr_fakt)
+    
+    protocols.each_with_index do |cube,count|
+      unless count.eql?(ex_ranges.size)
+        # use some helper stuff
+        p "#{cube.laenge},#{cube.breite},#{cube.hoehe}"
+        volumen = Helper.volume(cube.laenge,cube.breite,cube.hoehe)
+        rohdichte = Helper.rohdichte(cube.masse, volumen)
+        #puts "#{cube.laenge_i}, #{cube.breite_i}, #{cube.bruchlast}"
+        druckfest = Helper.druckfestigkeit(cube.laenge, cube.breite, cube.bruchlast)
+        #puts "druckfest is: #{druckfest}"
+        p druckfest 
+        druckfest_korr = Helper.round(druckfest * korr,0.5)
+        #write data to excel here
+        @excel.Range("#{ex_ranges[count]}7")['Value'] = cube.pk
+        #@excel.Range(ex_ranges[count].to_s<<'8')['Value'] = xml.festkl.to_s
+        #@excel.Range('d8')['Value'] = xml.festkl
+        @excel.Range("#{ex_ranges[count]}8")['Value'] = cube.betonfestigkeitsklasse
+        @excel.Range("#{ex_ranges[count]}9")['Value'] = cube.betonsorte
+        @excel.Range("#{ex_ranges[count]}10")['Value'] = cube.lieferschein
+        @excel.Range("#{ex_ranges[count]}11")['Value'] = cube.herstell_datum
+        exrange_insert(ex_ranges,count,12,cube.bauteil)
+        #@excel.Range(ex_ranges[count].to_s<<'12')['Value'] = x.bauteil
+        #exrange_insert(ex_ranges,count,15,x.herstelldatum)
+        exrange_insert(ex_ranges,count,16,cube.lufttemperatur)
+        exrange_insert(ex_ranges,count,17,cube.frischbetontemperatur)
+        exrange_insert(ex_ranges,count,18,cube.ausbreit)
+        exrange_insert(ex_ranges,count,31,cube.pk)
+        exrange_insert(ex_ranges,count,32,cube.kurzzeichen)
+        exrange_insert(ex_ranges,count,33,cube.einlieferungs_datum)
+        exrange_insert(ex_ranges,count,37,cube.prfdatum)
+        exrange_insert(ex_ranges,count,38,cube.ist_alter)
+        #exrange_insert(ex_ranges,count,39,Helper.ebenflaechigkeit(cube.eb_flaech))
+        exrange_insert(ex_ranges,count,40,cube.laenge)
+        exrange_insert(ex_ranges,count,41,cube.breite)
+        exrange_insert(ex_ranges,count,42,cube.hoehe)
+        exrange_insert(ex_ranges,count,43,cube.masse)
+        exrange_insert(ex_ranges,count,44,volumen)
+        exrange_insert(ex_ranges,count,45,rohdichte)
+        exrange_insert(ex_ranges,count,46,cube.bruchlast)
+        exrange_insert(ex_ranges,count,47,druckfest)
+        exrange_insert(ex_ranges,count,48,druckfest_korr)
+      else
+        break
+      end
+    end
+    
+    @excel.visible = true
   end
   
   #depricated

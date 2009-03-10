@@ -26,8 +26,10 @@ module XML
         
         
         protocol_fields.each_with_index do |field,index|
+          #p xml
           #p (xml/field.downcase_and_sym).text
           #p index 
+          p (xml/field)
           protocol.send("#{field.downcase_and_sym}=",(xml/field.downcase_and_sym).text)
         end
         
@@ -48,7 +50,7 @@ module XML
         @protocols << protocol # protokolle sammeln
       end
       
-      #p @protocols.size
+      p @protocols.size
       
     end # end assign_klasses
   end
@@ -120,20 +122,22 @@ module XML
     def parse(xml)
       root_string = "Abfrage_x003A__x0020_Protokoll_x0020_Wuerfel_x0020_komplett"
       
-      pp xml
+      
       
       #@xml.gsub!(Regexp.new(root_String),"Protokoll")
      
         
       
       @xml = replace_special_chars(@xml,[
-                                         {:replace => {:char => "_?[x0-9*]*", :with =>"" }},
                                         {:replace => {:char => "\344", :with => "ae" }},
                                         {:replace => {:char => "\374", :with => "ue"}},
                                         {:replace => {:char => "\366", :with => "oe"}},
-                                        {:replace => {:char => root_string,:with => "Protokoll"}}])
-                                    
-      p @xml
+                                        {:replace => {:char => "\337", :with => "ss"}},
+                                        {:replace => {:char => root_string,:with => "Protokoll"}}#,
+                                        #{:replace => {:char => "_?[x0-9*]*", :with =>"" }}
+                                      ])
+      p @xml      
+      
       @xml_doc = Hpricot.parse(@xml)
       l_root = "Protokoll".downcase_and_sym
       assign_klasses_from_xml(l_root,nil)

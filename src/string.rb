@@ -9,6 +9,8 @@ class String
   
   def split_t
     self.split('T')
+    #tmp = self.split('.')
+    #tmp.split.last.split('-')
   end
   
 end
