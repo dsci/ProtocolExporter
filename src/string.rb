@@ -11,15 +11,18 @@ class String
     self.split('T')
     #tmp = self.split('.')
     #tmp.split.last.split('-')
+    #return temp[0]
   end
   
 end
 
 class Array
   def to_german_date_string
-    jahr = self[0]
-    monat = self[1]
-    tag = self[2]
+    tmp = self[0]
+    k = tmp.split("-")
+    jahr = k[0]
+    monat = k[1]
+    tag = k[2]
     
     "#{tag}.#{monat}.#{jahr}"
   end

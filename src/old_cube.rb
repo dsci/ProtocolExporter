@@ -5,24 +5,26 @@
 
 class OldCube
   
-  attr_accessor :auftraggebendenl,:beschaffenheit,:lagerung_luft,:lagerung_wasser,:buch_nummer,:prf_nummer,
-                :betonwerk,:firma,:pk,:betonfestigkeitsklasse,:betonsorte,:lieferschein,:bauteil,
-                :soll_alter,:lufttemperatur,:frischbetontemperatur,:ausbreit,:prf_alter,:protokoll_nummer,
+  attr_accessor :auftraggebende_nl,:aeussere_beschaffenheit,:lagerung_in_luft_labor,:lagerung_in_wasser,:pruefnummer,
+                :betonwerk,:firma,:pk,:betonfestigkeitsklasse,:betonsorte,:lieferschein_nr,:bauteil,
+                :soll_pruefalter,:lufttemperatur,:frischbetontemperatur,:ausbreitmass,:pruefalter,:protokollnummer,
                 :laenge,:hoehe,:breite,:masse,:volumen,:rohdichte,:bruchlast,:kurzzeichen,:baustellenbezeichnung,:ist_alter,
-                :herstelldatum,:prf_datum,:einlieferungsdatum
+                :herstelldatum,:pruefdatum,:einlieferungsdatum,:baustellenbezeichnung,:pruefbuch_nummer
  
   
   def self.init_fields
-     %W[auftraggebendeNL beschaffenheit lagerung_luft lagerung_wasser buch_nummer prf_nummer
-                betonwerk firma pk betonfestigkeitsklasse betonsortelieferschein bauteil
-                soll_alter lufttemperatur frischbetontemperatur ausbreit prf_alter protokoll_nummer ist_alter
-                laenge hoehe breite masse volumen rohdichte bruchlast kurzzeichen herstelldatum prf_datum einlieferungsdatum]
+     %W[auftraggebende_NL aeussere_beschaffenheit lagerung_in_luft_labor lagerung_in_wasser pruefbuch_nummer pruefnummer
+                betonwerk firma pk betonfestigkeitsklasse bauteil betonsorte
+                soll_pruefalter lufttemperatur frischbetontemperatur ausbreitmass pruefalter protokollnummer ist_alter
+                laenge hoehe breite masse volumen rohdichte bruchlast kurzzeichen herstelldatum pruefdatum einlieferungsdatum 
+                baustellenbezeichnung lieferschein_nr]
   end
   
-  alias_method :lagerunginwasser,:lagerung_wasser
-  alias_method :lagerunginluftlabor,:lagerung_luft
-  alias_method :pruefbuchnummer,:buch_nummer
-  alias_method :betonsortelieferschein=, :betonsorte=
+  alias_method :lagerunginwasser,:lagerung_in_wasser
+  alias_method :lagerunginluftlabor,:lagerung_in_luft_labor
+  #alias_method :betonsortelieferschein=, :betonsorte=
+  alias_method :ist_alter,:pruefalter
+  alias_method :ausbreit,:ausbreitmass
   #alias_method "protokoll_nummer,=".to_sym,:protokoll_nummer
   
   def initialize;end
@@ -36,7 +38,7 @@ class OldCube
   end
   
   def prfdatum
-    date_helper self.prf_datum
+    date_helper self.pruefdatum
   end
   
   def einlieferungs_datum

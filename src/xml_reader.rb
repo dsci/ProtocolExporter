@@ -29,7 +29,7 @@ module XML
           #p xml
           #p (xml/field.downcase_and_sym).text
           #p index 
-          p (xml/field)
+          #p (xml/field)
           protocol.send("#{field.downcase_and_sym}=",(xml/field.downcase_and_sym).text)
         end
         
@@ -50,7 +50,7 @@ module XML
         @protocols << protocol # protokolle sammeln
       end
       
-      p @protocols.size
+      #p @protocols.size
       
     end # end assign_klasses
   end
@@ -133,7 +133,10 @@ module XML
                                         {:replace => {:char => "\374", :with => "ue"}},
                                         {:replace => {:char => "\366", :with => "oe"}},
                                         {:replace => {:char => "\337", :with => "ss"}},
-                                        {:replace => {:char => root_string,:with => "Protokoll"}}#,
+                                        {:replace => {:char => root_string,:with => "Protokoll"}},
+                                        {:replace => {:char => "Soll-Pruefalter", :with => "soll_pruefalter"}},
+                                        {:replace => {:char => "_x0020_",:with => "_"}},
+                                        {:replace => {:char => "Lieferschein-Nr", :with=> "lieferschein_nr"}}
                                         #{:replace => {:char => "_?[x0-9*]*", :with =>"" }}
                                       ])
       p @xml      
