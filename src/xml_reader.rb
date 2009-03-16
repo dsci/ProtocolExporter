@@ -139,7 +139,7 @@ module XML
                                         {:replace => {:char => "Lieferschein-Nr", :with=> "lieferschein_nr"}}
                                         #{:replace => {:char => "_?[x0-9*]*", :with =>"" }}
                                       ])
-      p @xml      
+      #p @xml      
       
       @xml_doc = Hpricot.parse(@xml)
       l_root = "Protokoll".downcase_and_sym

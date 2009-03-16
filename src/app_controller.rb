@@ -91,7 +91,7 @@ class AppController
   # exportiert access report xml ins excel
   # opt ist ein hash mit dem xml string und der klasse sowie der Art (WU/Df)
   def export_access_report(opt={})
-    
+    initExcelServer if @excel.nil?
     klass = opt[:klass] if opt.has_key?(:klass)
      #@excel.access_export(@file_Df, get_xml_object_access({:xml => {:xml_content => opt[:xml],:klass => klass}}))
     parser = XML::AccessXml.new(opt[:xml],klass.new)
@@ -100,7 +100,7 @@ class AppController
     
     @excel.access_export(@file_Df, xml_obj)
       #get_xml_object_access(opt[:xml],{:xml => {:xml_content => opt[:xml],:klass => klass}}))
-    p xml_obj.size
+   # p xml_obj.size
   end
   
   #

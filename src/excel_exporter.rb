@@ -212,7 +212,7 @@ class ExcelExporter
   #
   def access_export(filename,protocols)
     
-    file_path = "C:\\Documents and Settings\\Demo\\My Documents\\NetBeansProjects\\Cube\\protocols.yml"
+    file_path = "protocols.yml"
     File.open(file_path, "w") { |file| YAML.dump(protocols, file) }
     
     ex_ranges = ExcelExporter::DF_EX_RANGES
@@ -246,7 +246,7 @@ class ExcelExporter
         #puts "druckfest is: #{druckfest}"
         #p druckfest 
         
-        p cube.soll_pruefalter
+        #p cube.soll_pruefalter
         
         druckfest_korr = Helper.round(druckfest * korr,0.5)
         #write data to excel here
