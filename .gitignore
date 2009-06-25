@@ -1,3 +1,5 @@
 dist/**/*
 dist/
 *.yml
+nbproject/**/*
+excel/**/*
